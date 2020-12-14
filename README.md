@@ -81,6 +81,11 @@ model.fit_generator(image_a_b_gen(batch_size),
 ![](https://github.com/IlyaKuprik/ColorizeImage/blob/main/images/dom.jpg)
 ![](https://github.com/IlyaKuprik/ColorizeImage/blob/main/images/350_dom.jpg)
 
+![](https://github.com/IlyaKuprik/ColorizeImage/blob/main/images/moscow.jpg)
+![](https://github.com/IlyaKuprik/ColorizeImage/blob/main/images/350_moscow.jpg)
+
+![](https://github.com/IlyaKuprik/ColorizeImage/blob/main/images/pervomayka.jpg)
+![](https://github.com/IlyaKuprik/ColorizeImage/blob/main/images/350_pervomayka.jpg)
 
 
 ### Главные ссылки:
