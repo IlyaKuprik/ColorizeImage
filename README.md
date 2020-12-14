@@ -1,5 +1,7 @@
 # ColorizeImage
  Тема раскраски ЧБ фотографий меня заинтересовала, потому что я сам немного занимаюсь пленочной фотографией, и в целом мне стало интересно, как выглядели улицы городов 70-100 лет назад в цвете. Поэтому для итогового проекта по курсу "Введение в Искуственный Интелект" я решил написать программу на основе нейронной сети, которая будет раскрашивать фотографии.
+
+Писал я на языке Python, в облачной среде разработки __GoogleColab__, а в качестве библиотеки для работы с нейросетями использовал Keras. Вот [ссылка](https://colab.research.google.com/drive/1dEFVyyml8uKbmKvZvf9PruGpkG0Hyqws?usp=sharing) на ноутбук.
 ## Представление изображения
 Все знают, что изображения представляются в формате RGB, и сначала я думал работать с RGB представлением, но в таком случае пришлось бы предсказывать 3 слоя по черно-белому изображению. Для задачи колоризации гораздо лучше использовать цветовое пространство LAB.
 В этом цветовом пространстве в качестве одного из слоев используется lightness слой, то есть “светлота” картинки.
@@ -22,4 +24,24 @@
 ![](https://github.com/IlyaKuprik/ColorizeImage/blob/main/images/train_example.jpg)
 
 ## Архитектура сети
-Для проекта я использовал архитектуру сети из [данной статьи](https://habr.com/ru/company/nix/blog/342388/) с хабра. 
+Для проекта я использовал архитектуру сети из [данной статьи](https://habr.com/ru/company/nix/blog/342388/) с хабра. Это сверточная нейронная сеть, в которой 12 сверточных слоев, 3 из которых со _stride_ 2. Последние слои используются вместо __MaxPooling__, так как при макс-пулинге теряется пространственная структура изображения. Но ведь хочется раскрашивать изображения, не уменьшая их размер, поэтому в модели присутствуют слои повышения дискретизации __UpSampling__.
+
+Вот как выглядит сама модель:
+
+```
+model.add(Conv2D(64, (3, 3), activation='relu', padding='same'))
+model.add(Conv2D(64, (3, 3), activation='relu', padding='same', strides=2))
+model.add(Conv2D(128, (3, 3), activation='relu', padding='same'))
+model.add(Conv2D(128, (3, 3), activation='relu', padding='same', strides=2))
+model.add(Conv2D(256, (3, 3), activation='relu', padding='same'))
+model.add(Conv2D(256, (3, 3), activation='relu', padding='same', strides=2))
+model.add(Conv2D(512, (3, 3), activation='relu', padding='same'))
+model.add(Conv2D(256, (3, 3), activation='relu', padding='same'))
+model.add(Conv2D(128, (3, 3), activation='relu', padding='same'))
+model.add(UpSampling2D((2, 2)))
+model.add(Conv2D(64, (3, 3), activation='relu', padding='same'))
+model.add(UpSampling2D((2, 2)))
+model.add(Conv2D(32, (3, 3), activation='relu', padding='same'))
+model.add(Conv2D(2, (3, 3), activation='tanh', padding='same'))
+model.add(UpSampling2D((2, 2)))
+```
