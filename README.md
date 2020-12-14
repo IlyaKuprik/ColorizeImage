@@ -46,6 +46,36 @@ model.add(Conv2D(2, (3, 3), activation='tanh', padding='same'))
 model.add(UpSampling2D((2, 2)))
 ```
 
+## Обучение
+Для увелечения количества обучающих данных был написан генератор данных, который немного поворачивает изображения, отражает, приближает. Так же эксперементальным путем было установлено, что *batch_size* лучше выбирать около 100. 
+
+```
+datagen = ImageDataGenerator(
+        shear_range=0.2,
+        zoom_range=0.2,
+        rotation_range=20,
+        horizontal_flip=True)
+batch_size = 100
+epochs_size = 350 
+def image_a_b_gen(batch_size):
+    for batch in datagen.flow(Xtrain, batch_size=batch_size):
+        lab_batch = rgb2lab(batch)
+        X_batch = lab_batch[:,:,:,0]
+        Y_batch = lab_batch[:,:,:,1:] / 128
+        yield (X_batch.reshape(X_batch.shape+(1,)), Y_batch)
+        
+saver = CustomSaver()        
+model.fit_generator(image_a_b_gen(batch_size),
+                    callbacks=[saver, history],
+                    epochs=epochs_size,
+                    steps_per_epoch= len(Xtrain) // batch_size,
+                    validation_data=(Xtest,Ytest))
+```
+
+Я выбрал 350 эпох для обучениия, исходя из графика точности предсказания на тестовом и валидационном множестве:
+
+![](https://github.com/IlyaKuprik/ColorizeImage/blob/main/images/study_graphic.png)
+
 ### Главные ссылки:
 
 [Датасет](https://drive.google.com/file/d/16810f_ik9T_3iVPwIuSeUm0bPatIkouv/view?usp=sharing)
