@@ -17,4 +17,4 @@
 
 Размер обучающих данных я выбрал 128x128 пикселей, так как при большей размерности обучение длилось бы достаточно долго. 
 
-![Пример картинок из датасета](https://drive.google.com/file/d/1tzdBLuodmnJYfIBBeZ1gMbckDM2j2bLf/view?usp=sharing)
+![](https://github.com/IlyaKuprik/ColorizeImage/blob/main/images/train_example.jpg)
