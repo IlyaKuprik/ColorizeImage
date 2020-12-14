@@ -24,7 +24,7 @@
 ![](https://github.com/IlyaKuprik/ColorizeImage/blob/main/images/train_example.jpg)
 
 ## Архитектура сети
-Для проекта я использовал архитектуру сети из [данной статьи](https://habr.com/ru/company/nix/blog/342388/) с хабра. Это сверточная нейронная сеть, в которой 12 сверточных слоев, 3 из которых со _stride_ 2. Последние слои используются вместо __MaxPooling__, так как при макс-пулинге теряется пространственная структура изображения. Но ведь хочется раскрашивать изображения, не уменьшая их размер, поэтому в модели присутствуют слои повышения дискретизации __UpSampling__.
+Для проекта я использовал архитектуру сети из [данной статьи](https://habr.com/ru/company/nix/blog/342388/) с хабра. Это сверточная нейронная сеть, в которой 12 сверточных слоев, 3 из которых со _stride_ 2. Последние слои используются вместо __MaxPooling__, так как при макс-пулинге теряется пространственная структура изображения. Хотелось раскрашивать изображения, не уменьшая их размер, поэтому в модели присутствуют слои повышения дискретизации __UpSampling__.
 
 Вот как выглядит сама модель:
 
@@ -45,3 +45,11 @@ model.add(Conv2D(32, (3, 3), activation='relu', padding='same'))
 model.add(Conv2D(2, (3, 3), activation='tanh', padding='same'))
 model.add(UpSampling2D((2, 2)))
 ```
+
+### Главные ссылки:
+
+[Датасет](https://drive.google.com/file/d/16810f_ik9T_3iVPwIuSeUm0bPatIkouv/view?usp=sharing)
+
+[Ноутбук на GoogleColab](https://colab.research.google.com/drive/1dEFVyyml8uKbmKvZvf9PruGpkG0Hyqws?usp=sharing) 
+
+[Статья, с которой была взята модель](https://habr.com/ru/company/nix/blog/342388/)
