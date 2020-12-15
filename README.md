@@ -93,6 +93,14 @@ model.fit_generator(image_a_b_gen(batch_size),
 ![](https://github.com/IlyaKuprik/ColorizeImage/blob/main/images/pervomayka.jpg)
 ![](https://github.com/IlyaKuprik/ColorizeImage/blob/main/images/350_pervomayka.jpg)
 
+Это были самые удачные примеры, а теперь парочка неудачных
+
+![](https://github.com/IlyaKuprik/ColorizeImage/blob/main/images/3.jpg)
+![](https://github.com/IlyaKuprik/ColorizeImage/blob/main/images/3_color.jpg)
+
+![](https://github.com/IlyaKuprik/ColorizeImage/blob/main/images/1.jpg)
+![](https://github.com/IlyaKuprik/ColorizeImage/blob/main/images/1_color.jpg)
+
 
 ### Главные ссылки:
 
