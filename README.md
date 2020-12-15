@@ -101,3 +101,7 @@ model.fit_generator(image_a_b_gen(batch_size),
 [Ноутбук на GoogleColab](https://colab.research.google.com/drive/1dEFVyyml8uKbmKvZvf9PruGpkG0Hyqws?usp=sharing) 
 
 [Статья, с которой была взята модель](https://habr.com/ru/company/nix/blog/342388/)
+
+[Результаты тестового множества на каждой десятой эпохе](https://drive.google.com/drive/folders/1-j-Cj_Vt4wGw_gNAZu6O1aFECH9RM4xY?usp=sharing)
+
+[Веса модели, обученной на 10, 20, .. 1000 эпохах](https://drive.google.com/drive/folders/1BBzOgCe8DfgWuObDbm4u553AbannysWv?usp=sharing)
