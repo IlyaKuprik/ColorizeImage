@@ -76,7 +76,7 @@ model.fit_generator(image_a_b_gen(batch_size),
 
 Вот пример:
 
-![](https://github.com/IlyaKuprik/ColorizeImage/tree/main/images/40pervomayka.jpg)
+![](https://github.com/IlyaKuprik/ColorizeImage/blob/main/images/40pervomayka.jpg)
 
 ![](https://github.com/IlyaKuprik/ColorizeImage/blob/main/images/study_graphic.png)
 
