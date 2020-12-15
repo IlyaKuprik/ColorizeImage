@@ -72,7 +72,11 @@ model.fit_generator(image_a_b_gen(batch_size),
                     validation_data=(Xtest,Ytest))
 ```
 
-Я выбрал 350 эпох для обучениия, исходя из графика точности предсказания на тестовом и валидационном множестве:
+Сначала я пробовал 50 - 100 эпох, и, если смотреть на цифры, то получал неплохой результат. Но на деле, изображения получались тусклыми и недораскрашенными, видно было только синие и зеленые тона. Поэтому, если посмотреть на график точности предсказания на валидационном множестве, то следует 
+
+Вот пример:
+
+![](https://github.com/IlyaKuprik/ColorizeImage/tree/main/images/40pervomayka.jpg)
 
 ![](https://github.com/IlyaKuprik/ColorizeImage/blob/main/images/study_graphic.png)
 
