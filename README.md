@@ -101,6 +101,10 @@ model.fit_generator(image_a_b_gen(batch_size),
 ![](https://github.com/IlyaKuprik/ColorizeImage/blob/main/images/1.jpg)
 ![](https://github.com/IlyaKuprik/ColorizeImage/blob/main/images/1_color.jpg)
 
+А вот пример настоящего цвета, и работы моей сети:
+
+![](https://github.com/IlyaKuprik/ColorizeImage/blob/main/images/group.png)
+
 
 ### Главные ссылки:
 
